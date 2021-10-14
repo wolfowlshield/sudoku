@@ -7,5 +7,8 @@ public class Main {
 
         Board board = new Board();
         System.out.println(board);
+        // Board output is complete
+        // Now we need board init
+        // Then we need to add user interaction
     }
 }

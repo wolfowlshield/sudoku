@@ -14,6 +14,9 @@ public class Cell {
     }
 
     public String toString() {
-        return number;
+        if (isHidden) {
+            return " ";
+        }
+        return String.valueOf(number);
     }
 }
