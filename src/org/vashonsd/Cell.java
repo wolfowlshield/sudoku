@@ -2,18 +2,25 @@ package org.vashonsd;
 
 public class Cell {
     int number;
-    boolean isHidden;
+    boolean isShown;
 
-    public Cell(int num, boolean hide) {
+    public Cell(int num, boolean show) {
         number = num;
-        isHidden = hide;
+        isShown = show;
     }
 
-    public boolean isCorrect(int guess) {
+    public boolean isCorrect(int guess) { // Probably should be a void that sets isHidden to false if correct
         return (number == guess);
     }
 
+    public void show() {
+        isShown = true;
+    }
+
     public String toString() {
-        return number;
+        if (isShown) {
+            return String.valueOf(number);
+        }
+        return " ";
     }
 }

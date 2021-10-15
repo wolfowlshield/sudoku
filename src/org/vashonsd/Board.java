@@ -15,22 +15,33 @@ package org.vashonsd;
  * System.out.println("    1   2   3     4   5   6     7   8   9");
  */
 
+import java.util.ArrayList;
+
 public class Board {
 
-    Square square1 = new Square();
-    Square square2 = new Square();
-    Square square3 = new Square();
-    Square square4 = new Square();
-    Square square5 = new Square();
-    // Square[] squares = {square1, square2, square3, square4, square5};
+    ArrayList<Square> squareArrayList = new ArrayList<>();
 
-    public Board() {
-
+    public Board(ArrayList<int[]> squares) {
+        for (int i = 0; i < 9; i++) {
+            squareArrayList.add(new Square(squares.get(i)));
+        }
     }
 
     public String toString() {
-        return square1.toString() + square2 + square3 + "\n" +
-                "  [ - + - + - ] [ - + - + - ] [ - + - + - ]\n" +
-                square4 + square5;
-    }
+        String result = "";
+        for (int squareRow = 0; squareRow < 3; squareRow++) {
+            for (int row = 0; row < 3; row++) {
+                result = result.concat((9 - row - (squareRow * 3)) + " ");
+                for (int i = 0; i < 3; i++) { // This may be stupid
+                    result = result.concat(squareArrayList.get(i + (3 * squareRow)).getRow(row));
+                }
+                result = result.concat("\n");
+            }
+            if (squareRow!= 2) {
+                result = result.concat("  [ - + - + - ] [ - + - + - ] [ - + - + - ]\n");
+            }
+        }
+        result = result.concat("    1   2   3     4   5   6     7   8   9");
+        return result;
+  }
 }

@@ -1,5 +1,7 @@
 package org.vashonsd;
 
+import java.util.ArrayList;
+
 /*
  * [   |   |   ]
  * [   |   |   ]
@@ -7,14 +9,24 @@ package org.vashonsd;
  */
 public class Square {
 
-    Cell cell1;
+    ArrayList<Cell> cellArrayList = new ArrayList<>();
 
-    public Square () {
-        cell1 = new Cell(5, false);
+    public Square (int[] cellValue) {
+        for (int i = 0; i < 9; i++) {
+            cellArrayList.add(new Cell(cellValue[i], true));
+        }
     }
 
-    @Override
-    public String toString() {
-        return "[ " + cell1 + " | ";
+    public String getRow(int row) {
+        String result = "[ ";
+        for (int i = 0; i < 3; i++) { // I HAVE HARNESSED THE POWER OF FOUR FOR LOOPS, 3^4 = 81 Cells
+            result = result.concat(cellArrayList.get(i + (3 * row)).toString());
+            if (i != 2) {
+                result = result.concat(" | ");
+            } else {
+                result = result.concat(" ] ");
+            }
+        }
+        return result;
     }
 }
