@@ -14,6 +14,8 @@ public class SavedPuzzles {
     int[] square7 = {3, 4, 5, 6, 7, 8, 9, 1, 2};
     int[] square8 = {6, 7, 8, 9, 1, 2, 3, 4, 5};
     int[] square9 = {9, 1, 2, 3, 4, 5, 6, 7, 8};
+    int[] showingX = {1,2,3,4,5,6,7,8,9,2,5,8};
+    int[] showingY = {1,2,3,4,5,6,7,8,9,5,1,9};
 
     public SavedPuzzles() {
         puzzle1.add(square1);
@@ -25,6 +27,8 @@ public class SavedPuzzles {
         puzzle1.add(square7);
         puzzle1.add(square8);
         puzzle1.add(square9);
+        puzzle1.add(showingX);
+        puzzle1.add(showingY);
     }
 
     public ArrayList<int[]> getPuzzle1() {

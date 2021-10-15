@@ -19,12 +19,46 @@ import java.util.ArrayList;
 
 public class Board {
 
-    ArrayList<Square> squareArrayList = new ArrayList<>();
+    boolean init = true;
+
+    ArrayList<Square> squares = new ArrayList<>();
 
     public Board(ArrayList<int[]> squares) {
         for (int i = 0; i < 9; i++) {
-            squareArrayList.add(new Square(squares.get(i)));
+            this.squares.add(new Square(squares.get(i)));
         }
+    }
+
+    public void initCell(int x, int y) {
+        int square = findSquare(x, y);
+        int cell = findCell(x, y);
+        squares.get(square).revealCell(cell);
+    }
+
+    public void checkCell(int x, int y, int guess) {
+        int square = findSquare(x, y);
+        int cell = findCell(x, y);
+        squares.get(square).revealCell(cell, guess);
+    }
+
+    public int findSquare(int x, int y) {
+
+        y--;
+        x--;
+
+        int squareX = (x / 3);
+        int squareY = 2 - (y / 3);
+        return (squareY * 3) + squareX;
+    }
+
+    public int findCell(int x, int y) {
+
+        y--;
+        x--;
+
+        int cellX = x % 3;
+        int cellY = 2 - y % 3;
+        return (cellY * 3) + cellX;
     }
 
     public String toString() {
@@ -33,7 +67,7 @@ public class Board {
             for (int row = 0; row < 3; row++) {
                 result = result.concat((9 - row - (squareRow * 3)) + " ");
                 for (int i = 0; i < 3; i++) { // This may be stupid
-                    result = result.concat(squareArrayList.get(i + (3 * squareRow)).getRow(row));
+                    result = result.concat(squares.get(i + (3 * squareRow)).getRow(row));
                 }
                 result = result.concat("\n");
             }
@@ -43,5 +77,5 @@ public class Board {
         }
         result = result.concat("    1   2   3     4   5   6     7   8   9");
         return result;
-  }
+    }
 }

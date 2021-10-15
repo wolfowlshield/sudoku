@@ -9,18 +9,18 @@ import java.util.ArrayList;
  */
 public class Square {
 
-    ArrayList<Cell> cellArrayList = new ArrayList<>();
+    ArrayList<Cell> cells = new ArrayList<>();
 
     public Square (int[] cellValue) {
         for (int i = 0; i < 9; i++) {
-            cellArrayList.add(new Cell(cellValue[i], true));
+            cells.add(new Cell(cellValue[i], false));
         }
     }
 
     public String getRow(int row) {
         String result = "[ ";
         for (int i = 0; i < 3; i++) { // I HAVE HARNESSED THE POWER OF FOUR FOR LOOPS, 3^4 = 81 Cells
-            result = result.concat(cellArrayList.get(i + (3 * row)).toString());
+            result = result.concat(cells.get(i + (3 * row)).toString());
             if (i != 2) {
                 result = result.concat(" | ");
             } else {
@@ -28,5 +28,13 @@ public class Square {
             }
         }
         return result;
+    }
+
+    public void revealCell(int cell) {
+        cells.get(cell).show();
+    }
+
+    public void revealCell(int cell, int guess) {
+        cells.get(cell).isCorrect(guess);
     }
 }
