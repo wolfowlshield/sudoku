@@ -21,9 +21,9 @@ public class Board {
 
     ArrayList<Square> squareArrayList = new ArrayList<>();
 
-    public Board() {
+    public Board(ArrayList<int[]> squares) {
         for (int i = 0; i < 9; i++) {
-            squareArrayList.add(new Square());
+            squareArrayList.add(new Square(squares.get(i)));
         }
     }
 

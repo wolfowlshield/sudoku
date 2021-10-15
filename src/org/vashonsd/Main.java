@@ -5,10 +5,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Board board = new Board();
+        SavedPuzzles puzzles = new SavedPuzzles();
+        Board board = new Board(puzzles.getPuzzle1());
         System.out.println(board);
         // Board output is complete
-        // Now we need board init
+        // Board is half initialized, still need to only show some numbers
         // Then we need to add user interaction
     }
 }

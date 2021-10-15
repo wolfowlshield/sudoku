@@ -11,9 +11,9 @@ public class Square {
 
     ArrayList<Cell> cellArrayList = new ArrayList<>();
 
-    public Square () {
+    public Square (int[] cellValue) {
         for (int i = 0; i < 9; i++) {
-            cellArrayList.add(new Cell(4, true));
+            cellArrayList.add(new Cell(cellValue[i], true));
         }
     }
 
