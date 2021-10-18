@@ -4,30 +4,39 @@ import java.util.ArrayList;
 
 public class SavedPuzzles {
 
-    ArrayList<int[]> puzzle1 = new ArrayList<>();
-    int[] square1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    int[] square2 = {4, 5, 6, 7, 8, 9, 1, 2, 3};
-    int[] square3 = {7, 8, 9, 1, 2, 3, 4, 5, 6};
-    int[] square4 = {2, 3, 4, 5, 6, 7, 8, 9, 1};
-    int[] square5 = {5, 6, 7, 8, 9, 1, 2, 3, 4};
-    int[] square6 = {8, 9, 1, 2, 3, 4, 5, 6, 7};
-    int[] square7 = {3, 4, 5, 6, 7, 8, 9, 1, 2};
-    int[] square8 = {6, 7, 8, 9, 1, 2, 3, 4, 5};
-    int[] square9 = {9, 1, 2, 3, 4, 5, 6, 7, 8};
+    ArrayList<int[]> testPuzzle = new ArrayList<>() {{ // Just don't question it, I'm not sure either
+        add(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9});  // It overrides the constructor or initializer or some other madness
+        add(new int[]{4, 5, 6, 7, 8, 9, 1, 2, 3});  // But it works so... New format
+        add(new int[]{7, 8, 9, 1, 2, 3, 4, 5, 6});
+        add(new int[]{2, 3, 4, 5, 6, 7, 8, 9, 1});
+        add(new int[]{5, 6, 7, 8, 9, 1, 2, 3, 4});
+        add(new int[]{8, 9, 1, 2, 3, 4, 5, 6, 7});
+        add(new int[]{3, 4, 5, 6, 7, 8, 9, 1, 2});
+        add(new int[]{6, 7, 8, 9, 1, 2, 3, 4, 5});
+        add(new int[]{9, 1, 2, 3, 4, 5, 6, 7, 8});
+        add(new int[]{1,2,3,4,5,6,7,8,9,2,5,8});
+        add(new int[]{1,2,3,4,5,6,7,8,9,5,1,9});
+    }};
+
+    ArrayList<int[]> puzzle1 = new ArrayList<>() {{
+        add(new int[]{5, 6, 8, 3, 4, 2, 1, 9, 7});
+        add(new int[]{2, 4, 7, 1, 9, 5, 8, 6, 3});
+        add(new int[]{9, 1, 3, 6, 8, 7, 2, 5, 4});
+        add(new int[]{6, 8, 5, 7, 3, 4, 2, 1, 9});
+        add(new int[]{3, 1, 2, 9, 5, 8, 6, 7, 4});
+        add(new int[]{4, 7, 9, 1, 6, 2, 5, 3, 8});
+        add(new int[]{9, 2, 6, 4, 7, 3, 8, 5, 1});
+        add(new int[]{7, 8, 1, 5, 2, 6, 4, 3, 9});
+        add(new int[]{3, 4, 5, 8, 9, 1, 7, 2, 6});
+        add(new int[]{1,2,2,4,5,6,6,7,7,8,9,9,9,1,3,4,5,5,6,6,7,7,8,9,1,1,2,2,3,3,3,4,5,6,7,9,9,9});
+        add(new int[]{1,2,3,1,1,2,3,1,2,2,1,2,3,4,6,6,4,6,4,6,4,6,6,6,7,8,7,8,7,8,9,9,8,8,9,7,8,9});
+    }};
 
     public SavedPuzzles() {
-        puzzle1.add(square1);
-        puzzle1.add(square2);
-        puzzle1.add(square3);
-        puzzle1.add(square4);
-        puzzle1.add(square5);
-        puzzle1.add(square6);
-        puzzle1.add(square7);
-        puzzle1.add(square8);
-        puzzle1.add(square9);
+
     }
 
-    public ArrayList<int[]> getPuzzle1() {
+    public ArrayList<int[]> getPuzzle() {
         return puzzle1;
     }
 }

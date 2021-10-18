@@ -9,8 +9,12 @@ public class Cell {
         isShown = show;
     }
 
-    public boolean isCorrect(int guess) { // Probably should be a void that sets isHidden to false if correct
-        return (number == guess);
+    public boolean isCorrect(int guess) {
+        if (number == guess && !isShown) {
+            isShown = true;
+            return true;
+        }
+        return false;
     }
 
     public void show() {
