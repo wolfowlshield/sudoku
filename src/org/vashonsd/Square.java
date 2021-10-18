@@ -34,7 +34,7 @@ public class Square {
         cells.get(cell).show();
     }
 
-    public void revealCell(int cell, int guess) {
-        cells.get(cell).isCorrect(guess);
+    public boolean guessCell(int cell, int guess) {
+        return cells.get(cell).isCorrect(guess);
     }
 }

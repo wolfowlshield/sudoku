@@ -19,9 +19,8 @@ import java.util.ArrayList;
 
 public class Board {
 
-    boolean init = true;
-
     ArrayList<Square> squares = new ArrayList<>();
+    int cellsRevealed;
 
     public Board(ArrayList<int[]> squares) {
         for (int i = 0; i < 9; i++) {
@@ -33,12 +32,17 @@ public class Board {
         int square = findSquare(x, y);
         int cell = findCell(x, y);
         squares.get(square).revealCell(cell);
+        cellsRevealed++;
     }
 
-    public void checkCell(int x, int y, int guess) {
+    public boolean checkCell(int x, int y, int guess) {
         int square = findSquare(x, y);
         int cell = findCell(x, y);
-        squares.get(square).revealCell(cell, guess);
+        if (squares.get(square).guessCell(cell, guess)) {
+            cellsRevealed++;
+            return true;
+        }
+        return false;
     }
 
     public int findSquare(int x, int y) {
@@ -59,6 +63,10 @@ public class Board {
         int cellX = x % 3;
         int cellY = 2 - y % 3;
         return (cellY * 3) + cellX;
+    }
+
+    public boolean isFinished() {
+        return cellsRevealed == 81;
     }
 
     public String toString() {

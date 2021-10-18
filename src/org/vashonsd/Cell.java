@@ -9,10 +9,12 @@ public class Cell {
         isShown = show;
     }
 
-    public void isCorrect(int guess) {
-        if (number == guess) {
+    public boolean isCorrect(int guess) {
+        if (number == guess && !isShown) {
             isShown = true;
+            return true;
         }
+        return false;
     }
 
     public void show() {
