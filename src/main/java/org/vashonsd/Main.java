@@ -1,6 +1,5 @@
-package org.vashonsd;
+package main.java.org.vashonsd;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -10,17 +9,9 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-        SavedPuzzles puzzles = new SavedPuzzles();
-
-        ArrayList<int[]> currentPuzzle = puzzles.getPuzzle();
+        Cell[][] currentPuzzle = SavedPuzzles.getPuzzle();
 
         Board board = new Board(currentPuzzle);
-
-        for (int i = 0; i < currentPuzzle.get(9).length; i++) {
-            board.initCell(currentPuzzle.get(9)[i],currentPuzzle.get(10)[i]);
-            // System.out.println(currentPuzzle.get(9)[i] + ", " + currentPuzzle.get(10)[i]);
-            // ^ would print out coordinates if uncommented
-        }
         
         System.out.println(board);
 
@@ -36,7 +27,7 @@ public class Main {
             if (guess.equals("exit")) {
                 stillRunning = false;
             } else {
-                String numbers = guess.replaceAll("[^0-9]", ""); // Thank you stackOverflow
+                String numbers = guess.replaceAll("[^1-9]", ""); // Thank you stackOverflow
                 if (numbers.length() < 3) {
                     System.out.println("You didn't use enough numbers");
                 } else {
@@ -50,7 +41,7 @@ public class Main {
                     } else {
                         System.out.println(board);
                         if (board.isFinished()) {
-                            System.out.println("Congrats! You Win!");
+                            System.out.println("Congrats! You is Win! A Winner is You!");
                             stillRunning = false;
                         }
                     }

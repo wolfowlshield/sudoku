@@ -1,4 +1,4 @@
-package org.vashonsd;
+package main.java.org.vashonsd;
 
 public class Cell {
     int number;
@@ -17,9 +17,7 @@ public class Cell {
         return false;
     }
 
-    public void show() {
-        isShown = true;
-    }
+    public boolean isShown() {return isShown;}
 
     public String toString() {
         if (isShown) {
