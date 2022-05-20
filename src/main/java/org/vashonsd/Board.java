@@ -37,8 +37,8 @@ public class Board {
         Cell[] values = new Cell[9];
         int count = 0;
 
-        for (int i = 0; i < 3; i++) { // get the int[]s we need
-            for (int j = 0; j < 3; j++) { // get the ints we need
+        for (int i = 0; i < 3; i++) { // get the Cell[] we need
+            for (int j = 0; j < 3; j++) { // get the Cell we need
                 values[count] = board[i + squareY * 3][j + squareX * 3];
                 count++;
             }

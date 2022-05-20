@@ -28,6 +28,8 @@ public class SavedPuzzles {
             new Cell[]{new Cell(4,true), new Cell(7,true), new Cell(3,true), new Cell(6,false),new Cell(5,true), new Cell(2,true), new Cell(8,false),new Cell(1,false),new Cell(9,true)}
     };
 
+    // alternatively we could've had a Cell[3][3][3][3], but a Cell[9][9] will be nicer to get rows and columns for solving and generating.
+
     public static Cell[][] getTestPuzzle() {return testPuzzle2;}
 
     public static Cell[][] getPuzzle() {
